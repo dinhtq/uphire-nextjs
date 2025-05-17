@@ -25,8 +25,6 @@ export function FeedbackForm() {
             const formData = new FormData(myForm);
             const res = await fetch('/__forms.html', {
                 method: 'POST',
-                //headers: { 'Content-Type': 'multipart/form-data' },
-                // body: new URLSearchParams(formData).toString()
                 body: formData
             });
             if (res.status === 200) {
