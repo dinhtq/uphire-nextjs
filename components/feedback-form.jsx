@@ -4,6 +4,14 @@ import { useState } from 'react';
 import { Alert } from './alert';
 import { Card } from './card';
 
+/*
+    IMPORTANT!
+
+    Make sure to update the form static html as well
+    (public/__forms.html)
+
+*/
+
 export function FeedbackForm() {
     const [status, setStatus] = useState(null);
     const [error, setError] = useState(null);
