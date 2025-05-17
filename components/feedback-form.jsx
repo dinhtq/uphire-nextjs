@@ -40,6 +40,7 @@ export function FeedbackForm() {
                     <input name="name" type="text" placeholder="Name" required className="input" />
                     <input name="email" type="email" placeholder="Email (optional)" className="input" />
                     <input name="message" type="text" placeholder="Message" required className="input" />
+                    <input name="file" type="file" />
                     <button className="btn" type="submit" disabled={status === 'pending'}>
                         Submit
                     </button>
