@@ -25,7 +25,7 @@ export function FeedbackForm() {
             const formData = new FormData(myForm);
             const res = await fetch('/__forms.html', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                // headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                 body: new URLSearchParams(formData).toString()
             });
             if (res.status === 200) {
@@ -42,8 +42,14 @@ export function FeedbackForm() {
 
     return (
         <div className="w-full md:max-w-md">
+            <div>build: {process.env.COMMIT_REF}</div>
             <Card title="Leave Feedback yo">
-                <form name="feedback" onSubmit={handleFormSubmit} className="flex flex-col gap-3 align-center">
+                <form
+                    name="feedback"
+                    enctype="multipart/form-data"
+                    onSubmit={handleFormSubmit}
+                    className="flex flex-col gap-3 align-center"
+                >
                     <input type="hidden" name="form-name" value="feedback" />
                     <input name="name" type="text" placeholder="Name" required className="input" />
                     <input name="email" type="email" placeholder="Email (optional)" className="input" />
