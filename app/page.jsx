@@ -5,6 +5,8 @@ import { Markdown } from 'components/markdown';
 import { RandomQuote } from 'components/random-quote';
 import { getNetlifyContext } from 'utils';
 
+import { FeedbackForm } from 'components/feedback-form';
+
 const contextExplainer = `
 The card below is rendered on the server based on the value of \`process.env.CONTEXT\` 
 ([docs](https://docs.netlify.com/configure-builds/environment-variables/#build-metadata)):
@@ -41,26 +43,7 @@ export default function Page() {
                     <RuntimeContextCard />
                 </section>
             )}
-            <form name="contact" method="POST" netlify>
-                <p>
-                    <label>
-                        Your Name: <input type="text" name="name" />
-                    </label>
-                </p>
-                <p>
-                    <label>
-                        Your Email: <input type="email" name="email" />
-                    </label>
-                </p>
-                <p>
-                    <label>
-                        Message: <textarea name="message"></textarea>
-                    </label>
-                </p>
-                <p>
-                    <button type="submit">Send</button>
-                </p>
-            </form>
+            <FeedbackForm />
             <section className="flex flex-col gap-4">
                 <Markdown content={preDynamicContentExplainer} />
                 <RandomQuote />
